@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<body>
+<a href="/charts/home">Home</a>
+<div id="main_div" style="width:70%; margin: 10px auto; background-color: rgb(250, 247, 233);">
+<h1>Hosts matrics</h1>
+<br>
+
+<!-- <label for="disk_d">Disk usage D:</label>
+<meter id="disk_d" value="0.25"></meter> -->
+{% if search == "show" %}
+<strong>Select Host and no. of records</strong>  &nbsp;
+<form name="select-host" method="GET" action="/charts/showData">
+<select name="host" id="host">
+{% for host in hosts: %}
+    <option value="{{ host }}">{{host}}</option>
+{% endfor %}
+</select>&nbsp;
+<select name="number" id="number">
+    <option value="5">5</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+</select>
+<input type="submit" value="Press"></input>
+</form>
+{% endif %}
+
+
+{% if information == "show" %}
+<script
+    src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>   
+<div align="center">
+    <h2>Showing information for : <font color='green'>{{ data.hostname }}</font></h2>
+</div>
+
+<div align="center">
+    <canvas id="myChartproc" style="width:100%;max-width:700px" align="center"></canvas>
+</div>
+
+<script>
+    mem = JSON.parse('{{ data.mem }}') ;
+    proc = JSON.parse('{{ data.proc }}') ;
+    cpu = JSON.parse('{{ data.cpu }}') ;
+    records = JSON.parse('{{ data.records }}') ;
+    // tmp = JSON.parse('{{ data.tmp }}') ;
+    
+new Chart("myChartproc", {
+  type: "line",
+  data: {
+    labels: records, 
+    datasets: [{
+        label: "Process",
+        data: proc , 
+        borderColor: "red",
+        borderWidth: 2, 
+        fill: false
+    },
+    {
+        label: "Memory",
+        data: mem , 
+        borderColor: "blue",
+        borderWidth: 2,
+        fill: false
+    },
+    {
+        label: "CPU",
+        data: cpu , 
+        borderColor: "green",
+        borderWidth: 2, 
+        fill: false
+    }]
+  }
+  });
+</script>
+{% endif %}
+</div>
+</body>
+</html>
