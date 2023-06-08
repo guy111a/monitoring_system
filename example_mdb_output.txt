@@ -1,0 +1,3 @@
+{'_id': ObjectId('64824f62bb3dcd95100370f1'), 'agent_id': 'magma', 'num_of_proc': '92', 'cpu_avg_load': '3', 'cpu_usage': '3', 'vMem': '27.8', 'ram_used': '0', 'temps': '{"cpu_thermal": [["", 38.47, 110.0, 110.0]]}', 'time_stamp': 1686261602.4598706}
+{'_id': ObjectId('64824f62bb3dcd95100370ef'), 'agent_id': 'banana', 'num_of_proc': '119', 'vMem': '28.5', 'ram_used': '0', 'temps': '{"cpu_thermal": [["", 33.897, 105.0, 105.0]]}', 'time_stamp': 1686261602.3392653}
+{'_id': ObjectId('64824f62bb3dcd95100370ed'), 'agent_id': 'duster', 'num_of_proc': '241', 'cpu_avg_load': '3', 'cpu_usage': '4', 'vMem': '32.3', 'ram_used': '1', 'temps': '{"cpu_thermal": [["", 49.173, 110.0, 110.0]]}', 'time_stamp': 1686261602.0854018}
